@@ -1,17 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-/**
- * useState(), useHistory() => Both are react hooks.
- * React hooks help to change state.
- * State change via hooks also informs React that
- * re-rendering is required.
- * React.memo is a special function. It prevents re-rendering
- * unless this component's input has changed.
- * Usually all child components re-rendered.
- * With React.memo() only if this component input has updated
- * then re-rendering will occur.
- */
+
 const Card = React.memo(props => {
   /**
    * movie = {
