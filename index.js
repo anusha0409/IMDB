@@ -1,20 +1,18 @@
-const express=require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const omdbRouter = require('./routes/omdb');
-const app = express();
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-/* Middle Ware */
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-console.log("hi");
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-app.use('/',omdbRouter);
-app.listen(3000, function(){
-    console.log("Server started on port 3000");
-});
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
